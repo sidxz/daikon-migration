@@ -17,7 +17,7 @@ GeneGroupsRaw = [
         ]
     },
     {
-        "name": "RNA Pol Sig A",
+        "name": "RNA-Pol-Sig-A",
         "type": "protein-complex",
         "genes": [
             {
@@ -122,7 +122,7 @@ GeneGroupsRaw = [
         ]
     },
     {
-        "name": "RNA Pol Core",
+        "name": "RNA-Pol-Core",
         "type": "protein-complex",
         "genes": [
             {
@@ -164,7 +164,7 @@ GeneGroupsRaw = [
         ]
     },
     {
-        "name": "Anthranilate synthetase",
+        "name": "Anthranilate-synthetase",
         "type": "protein-complex",
         "genes": [
             {
@@ -176,7 +176,7 @@ GeneGroupsRaw = [
         ]
     },
     {
-        "name": "ATP synthase",
+        "name": "ATP-synthase",
         "type": "protein-complex",
         "genes": [
             {
@@ -212,7 +212,7 @@ GeneGroupsRaw = [
         ]
     },
     {
-        "name": "Bc1 Complex",
+        "name": "Bc1-Complex",
         "type": "protein-complex",
         "genes": [
             {
@@ -230,7 +230,7 @@ GeneGroupsRaw = [
         ]
     },
     {
-        "name": "Cytochrome BD",
+        "name": "Cytochrome-BD",
         "type": "protein-complex",
         "genes": [
             {
@@ -258,7 +258,7 @@ GeneGroupsRaw = [
         ]
     },
     {
-        "name": "DNA Gyrase",
+        "name": "DNA-Gyrase",
         "type": "protein-complex",
         "genes": [
             {
@@ -270,7 +270,7 @@ GeneGroupsRaw = [
         ]
     },
     {
-        "name": "DNA Polymerase",
+        "name": "DNA-Polymerase",
         "type": "protein-complex",
         "genes": [
             {
@@ -306,7 +306,7 @@ GeneGroupsRaw = [
         ]
     },
     {
-        "name": "DprE1 MoeW Dual",
+        "name": "DprE1-MoeW-Dual",
         "type": "protein-complex",
         "genes": [
             {
@@ -333,7 +333,7 @@ GeneGroupsRaw = [
         ]
     },
     {
-        "name": "KatG InhA Dual",
+        "name": "KatG-InhA-Dual",
         "type": "protein-complex",
         "genes": [
             {
@@ -477,7 +477,7 @@ GeneGroupsRaw = [
         ]
     },
     {
-        "name": "RNA polymerase",
+        "name": "RNA-polymerase",
         "type": "protein-complex",
         "genes": [
             {
@@ -513,7 +513,7 @@ GeneGroupsRaw = [
         ]
     },
     {
-        "name": "Cytochrome BC",
+        "name": "Cytochrome-BC",
         "type": "protein-complex",
         "genes": [
             {
@@ -531,7 +531,7 @@ GeneGroupsRaw = [
         ]
     },
     {
-        "name": "ATP Synthesis",
+        "name": "ATP-Synthesis",
         "type": "protein-complex",
         "genes": [
             {

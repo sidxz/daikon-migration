@@ -63,7 +63,7 @@ for projectName in validatedProjects:
     if project.projectType == 'Phenotypic':
       # Add a screen and save the screen id
       screenToAdd = {
-          "screenName": project.projectName,
+          "screenName": project.projectName.replace(' ', '-'),
           "org": {"id": project.primaryOrgId},
           "method": "Legacy",
           "promotionDate": fdate(project.fhaStart),
