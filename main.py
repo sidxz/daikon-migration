@@ -30,7 +30,7 @@ validatedProjects = validateData()
 
 
 for projectName in validatedProjects:
-  time.sleep(2.0)
+  time.sleep(0.01)
   print("# --------------------------------")
   print(f"# For {projectName}")
 
@@ -143,7 +143,7 @@ for projectName in validatedProjects:
     res = addFHA(newFHA)
     print(res)
 
-    time.sleep(1.0)
+    time.sleep(0.01)
     existingProjects = dict()
     existingProjects.clear()
     existingProjects = getProjects()
