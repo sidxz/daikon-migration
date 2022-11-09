@@ -1,6 +1,6 @@
 class Project:
 
-  def __init__(self, projectType=None, projectId=None, projectName=None, screenId=None, targetName=None, targetId=None, baseHits=None, priority=None, probability=None, teamPriority=None, teamProbability=None, fhaEnabled=None, fhaStart=None, fhaPredictedStart=None, fhaDescription=None, h2LEnabled=None, h2LStart=None, h2LPredictedStart=None, h2LDescription=None, loEnabled=None, loStart=None, loPredictedStart=None, loDescription=None, spEnabled=None, spStart=None, spPredictedStart=None, spDescription=None, pcdEnabled=None, pcdDate=None, pcdDescription=None, indEnabled=None, indStart=None, indPredictedStart=None, indDescription=None, clinicalP1Enabled=None, clinicalP1Start=None, clinicalP1PredictedStart=None, clinicalP1Description=None, primaryOrgId=None, primaryOrganization=None, supportingOrgs=None, representationStructureId=None, smile=None, externalCompoundIds=None, library=None, method=None, status=None):
+  def __init__(self, projectType=None, projectId=None, projectName=None, screenId=None, targetName=None, targetId=None, baseHits=None, priority=None, probability=None, teamPriority=None, teamProbability=None, haEnabled=None, haStart=None, haPredictedStart=None, haDescription=None, h2LEnabled=None, h2LStart=None, h2LPredictedStart=None, h2LDescription=None, loEnabled=None, loStart=None, loPredictedStart=None, loDescription=None, spEnabled=None, spStart=None, spPredictedStart=None, spDescription=None, pcdEnabled=None, pcdDate=None, pcdDescription=None, indEnabled=None, indStart=None, indPredictedStart=None, indDescription=None, clinicalP1Enabled=None, clinicalP1Start=None, clinicalP1PredictedStart=None, clinicalP1Description=None, primaryOrgId=None, primaryOrganization=None, supportingOrgs=None, representationStructureId=None, smile=None, externalCompoundIds=None, library=None, method=None, status=None):
     self.projectId = projectId
     self.projectType = projectType
     self.projectName = projectName
@@ -12,10 +12,10 @@ class Project:
     self.probability = probability
     self.teamPriority = teamPriority
     self.teamProbability = teamProbability
-    self.fhaEnabled = fhaEnabled
-    self.fhaStart = fhaStart
-    self.fhaPredictedStart = fhaPredictedStart
-    self.fhaDescription = fhaDescription
+    self.haEnabled = haEnabled
+    self.haStart = haStart
+    self.haPredictedStart = haPredictedStart
+    self.haDescription = haDescription
     self.h2LEnabled = h2LEnabled
     self.h2LStart = h2LStart
     self.h2LPredictedStart = h2LPredictedStart

@@ -95,9 +95,9 @@ def addHit(hitToAdd):
     return y, request.status_code
 
 
-def addFHA(fhaDetails):
+def addHA(haDetails):
     request = requests.post(
-        url=baseUrl + "elevated/Project", json=fhaDetails, headers=head
+        url=baseUrl + "elevated/Project", json=haDetails, headers=head
     )
     return request.status_code
 

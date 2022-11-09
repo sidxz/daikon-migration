@@ -10,7 +10,7 @@ from tracker import loadScreenTracker
 from tracker import addToScreenTracker
 from tracker import addToHitTracker
 from tracker import loadHitTracker
-from apiClient import addFHA
+from apiClient import addHA
 from apiClient import addH2L
 from apiClient import addLO
 from apiClient import addSP
@@ -22,7 +22,7 @@ from apiClient import addPhenotypicScreen
 def fdate(dstr):
   parse = str(datetime.datetime.strptime(
       dstr, '%m/%d/%y').strftime('%Y-%m-%dT%H:%M:%S'))
-  return parse + '.235Z'
+  return parse + '.840259Z'
 
 
 # Validate Data
@@ -50,7 +50,7 @@ for projectName in validatedProjects:
           "targetId": project.targetId,
           "org": {"id": project.primaryOrgId},
           "method": "Legacy",
-          "promotionDate": fdate(project.fhaStart),
+          "promotionDate": fdate(project.haStart),
           "notes": "Imported from SharePoint"
       }
       print(f"# Will promote target {project.targetName}")
@@ -66,7 +66,7 @@ for projectName in validatedProjects:
           "screenName": project.projectName.replace(' ', '-'),
           "org": {"id": project.primaryOrgId},
           "method": "Legacy",
-          "promotionDate": fdate(project.fhaStart),
+          "promotionDate": fdate(project.haStart),
           "notes": "Imported from SharePoint"
       }
       print(f"# Will create phenotypic screen {project.targetName}")
@@ -108,10 +108,10 @@ for projectName in validatedProjects:
   if hitId == '':
     hitId = hitTracker.get(project.projectName)['hitId']
     compoundId = hitTracker.get(project.projectName)['compoundId']
-  # Create FHA
-  if project.fhaStart != '':
-    print("# Will create new FHA")
-    newFHA = {
+  # Create HA
+  if project.haStart != '':
+    print("# Will create new HA")
+    newHA = {
         "projectName": project.projectName,
         "primaryOrg": {
             "id": project.primaryOrgId
@@ -121,8 +121,8 @@ for projectName in validatedProjects:
                 "id": project.primaryOrgId
             }
         ],
-        "fhaStart": fdate(project.fhaStart),
-        "fhaDescription": "",
+        "haStart": fdate(project.haStart),
+        "haDescription": "",
         "ScreenId": screenId,
         "baseHits": [
             {
@@ -139,8 +139,8 @@ for projectName in validatedProjects:
             "iC50": 0
         }
     }
-    print(newFHA)
-    res = addFHA(newFHA)
+    print(newHA)
+    res = addHA(newHA)
     print(res)
 
     time.sleep(0.01)
@@ -154,7 +154,7 @@ for projectName in validatedProjects:
       print("# Will create new H2L")
       newH2L = {
           "id": projectId,
-          "h2LStart": fdate(project.fhaStart),
+          "h2LStart": fdate(project.haStart),
       }
       print(newH2L)
       res = addH2L(projectId, newH2L)

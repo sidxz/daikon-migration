@@ -24,8 +24,8 @@ def validateData(printLogs=True):
   targetFailCount = 0
 
   smileFailCount = 0
-  fhaFails = []
-  FHAFailCount = 0
+  haFails = []
+  HAFailCount = 0
   total = 0
   validationSuccess = 0
   validationFail = 0
@@ -44,7 +44,7 @@ def validateData(printLogs=True):
       primaryOrganization = row[18]
       externalCompoundIds = "LEGACY-"+row[0]
       primaryOrganizationAbb = primaryOrganization.upper().replace(" ", "")
-      fhaDate = row[23]
+      haDate = row[23]
       h2LStart = row[24]
       loStart = row[25]
       spStart = row[26]
@@ -58,7 +58,7 @@ def validateData(printLogs=True):
         print(f"# Compound Id : {externalCompoundIds}")
         print(f"# primaryOrg  : {primaryOrganization}")
         print(f"# SMILE       : {smile}")
-        print(f"# FHA DATE    : {fhaDate}")
+        print(f"# HA DATE    : {haDate}")
         print("-------------------------------------------")
 
       if primaryOrganizationAbb in appOrgs:
@@ -109,12 +109,12 @@ def validateData(printLogs=True):
         if h2LStart == '':
           h2LStart = '1/1/14'
 
-      if fhaDate == '':
+      if haDate == '':
         # flag = True
-        validationFailMessage = "FHA Date|"
-        # FHAFailCount = FHAFailCount + 1
-        # fhaFails.append(projectName)
-        fhaDate = '1/1/14'
+        validationFailMessage = "HA Date|"
+        # HAFailCount = HAFailCount + 1
+        # haFails.append(projectName)
+        haDate = '1/1/14'
 
       if flag:
         validationFail = validationFail + 1
@@ -133,7 +133,7 @@ def validateData(printLogs=True):
               externalCompoundIds=externalCompoundIds,
               library=row[30],
               method="Legacy",
-              fhaStart=fhaDate,
+              haStart=haDate,
               h2LStart=h2LStart,
               loStart=loStart,
               spStart=spStart,
@@ -155,7 +155,7 @@ def validateData(printLogs=True):
               externalCompoundIds=externalCompoundIds,
               library=row[30],
               method="Legacy",
-              fhaStart=fhaDate,
+              haStart=haDate,
               h2LStart=h2LStart,
               loStart=loStart,
               spStart=spStart,
@@ -181,8 +181,8 @@ def validateData(printLogs=True):
     print("# ----TARGET FAILS ----")
     pprint.pprint(Counter(targetFails))
 
-    print("# ----FHA DATE FAILS ----")
-    pprint.pprint(Counter(fhaFails))
+    print("# ----HA DATE FAILS ----")
+    pprint.pprint(Counter(haFails))
 
     print("# =========SUMMARY===========")
     print(f"# TOTAL : {total}")
@@ -194,5 +194,5 @@ def validateData(printLogs=True):
     print(f"# PRIMARY ORG FAIL    : {primaryOrgFailCount}")
     print(f"# TARGET FAIL         : {targetFailCount}")
     print(f"# SMILE FAIL          : {smileFailCount}")
-    print(f"# FHA Date FAIL       : {FHAFailCount}")
+    print(f"# HA Date FAIL       : {HAFailCount}")
   return validated
