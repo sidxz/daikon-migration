@@ -50,11 +50,15 @@ for projectName in validatedProjects:
           "targetId": project.targetId,
           "org": {"id": project.primaryOrgId},
           "method": "Legacy",
-          "promotionDate": fdate(project.haStart),
+          "promotionDate": fdate('1/1/14'),
           "notes": "Imported from SharePoint"
       }
       print(f"# Will promote target {project.targetName}")
+      print("Adding Screen...")
+      print(screenToAdd);
       res, status = addScreen(screenToAdd)
+      print(res, status)
+      
       screenId = res['id']
       screenName = res['screenName']
       if status == 200:
@@ -66,7 +70,7 @@ for projectName in validatedProjects:
           "screenName": project.projectName.replace(' ', '-'),
           "org": {"id": project.primaryOrgId},
           "method": "Legacy",
-          "promotionDate": fdate(project.haStart),
+          "promotionDate": fdate('1/1/14'),
           "notes": "Imported from SharePoint"
       }
       print(f"# Will create phenotypic screen {project.targetName}")
@@ -154,7 +158,7 @@ for projectName in validatedProjects:
       print("# Will create new H2L")
       newH2L = {
           "id": projectId,
-          "h2LStart": fdate(project.haStart),
+          "h2LStart": fdate(project.h2LStart),
       }
       print(newH2L)
       res = addH2L(projectId, newH2L)

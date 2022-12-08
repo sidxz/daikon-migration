@@ -114,6 +114,10 @@ AppOrgsList = [
         "alias": "LIA",
     },
     {
+        "name": "Lilly",
+        "alias": "Lilly",
+    },
+    {
         "name": "Unassigned/Unknown",
         "alias": "NA",
     }
