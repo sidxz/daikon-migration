@@ -184,3 +184,10 @@ def importVote(voteJSON):
         url=baseUrl + "elevated/vote/import", json=voteJSON, headers=head
     )
     return request.status_code
+
+
+def addEssentiality(id, essentiality):
+    request = requests.post(
+        url=baseUrl + "gene/" + id + "/essentiality", json=essentiality, headers=head
+    )
+    return request.status_code

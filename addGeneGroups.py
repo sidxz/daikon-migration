@@ -164,7 +164,7 @@ GeneGroupsRaw = [
         ]
     },
     {
-        "name": "Anthranilate-synthetase",
+        "name": "Anthranilate-Synthetase",
         "type": "protein-complex",
         "genes": [
             {
@@ -176,7 +176,7 @@ GeneGroupsRaw = [
         ]
     },
     {
-        "name": "ATP-synthase",
+        "name": "ATP-Synthase",
         "type": "protein-complex",
         "genes": [
             {
@@ -477,7 +477,7 @@ GeneGroupsRaw = [
         ]
     },
     {
-        "name": "RNA-polymerase",
+        "name": "RNA-Polymerase",
         "type": "protein-complex",
         "genes": [
             {
