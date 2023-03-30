@@ -2,6 +2,7 @@ import csv
 from collections import Counter
 from dbm.ndbm import library
 import json
+import os
 import pprint
 from operator import delitem
 from apiClient import addEssentiality, getAppOrgs, getGenesWithAccessionKey
@@ -68,6 +69,9 @@ def add():
         essentiality["RvNumber"] = element["RvNumber"]
         apiResults.append(essentiality)
         print("Essentiality data added for GeneID: ", element["GeneID"], " with status code: ", statusCode)
+        
+
+
 
 ## Main
 
@@ -92,6 +96,3 @@ if len(formattedEssentiality) > 0:
     print("Essentiality data added to the database.")
 else:
     print("No essentiality data, Invalid Token?")
-
-
-
