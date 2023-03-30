@@ -191,3 +191,17 @@ def addEssentiality(id, essentiality):
         url=baseUrl + "gene/" + id + "/essentiality", json=essentiality, headers=head
     )
     return request.status_code
+
+def addVulnerability(id, vulnerability):
+    request = requests.post(
+        url=baseUrl + "gene/" + id + "/vulnerability", json=vulnerability, headers=head
+    )
+    return request.status_code
+
+
+def addCompass(id, compass):
+    request = requests.post(
+        url=baseUrl + "target/" + id + "/summary", json=compass, headers=head
+    )
+    return request.status_code
+
