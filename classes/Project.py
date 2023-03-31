@@ -1,6 +1,6 @@
 class Project:
 
-  def __init__(self, projectType=None, projectId=None, projectName=None, screenId=None, targetName=None, targetId=None, baseHits=None, priority=None, probability=None, teamPriority=None, teamProbability=None, haEnabled=None, haStart=None, haPredictedStart=None, haDescription=None, h2LEnabled=None, h2LStart=None, h2LPredictedStart=None, h2LDescription=None, loEnabled=None, loStart=None, loPredictedStart=None, loDescription=None, spEnabled=None, spStart=None, spPredictedStart=None, spDescription=None, pcdEnabled=None, pcdDate=None, pcdDescription=None, indEnabled=None, indStart=None, indPredictedStart=None, indDescription=None, clinicalP1Enabled=None, clinicalP1Start=None, clinicalP1PredictedStart=None, clinicalP1Description=None, primaryOrgId=None, primaryOrganization=None, supportingOrgs=None, representationStructureId=None, smile=None, externalCompoundIds=None, library=None, method=None, status=None):
+  def __init__(self, projectType=None, projectId=None, projectName=None, screenId=None, targetName=None, targetId=None, baseHits=None, priority=None, probability=None, teamPriority=None, teamProbability=None, haEnabled=None, haStart=None, haPredictedStart=None, haDescription=None, h2LEnabled=None, h2LStart=None, h2LPredictedStart=None, h2LDescription=None, loEnabled=None, loStart=None, loPredictedStart=None, loDescription=None, spEnabled=None, spStart=None, spPredictedStart=None, spDescription=None, pcdEnabled=None, pcdDate=None, pcdDescription=None, indEnabled=None, indStart=None, indPredictedStart=None, indDescription=None, clinicalP1Enabled=None, clinicalP1Start=None, clinicalP1PredictedStart=None, clinicalP1Description=None, primaryOrgId=None, primaryOrganization=None, supportingOrgs=None, representationStructureId=None, smile=None, externalCompoundIds=None, library=None, method=None, status=None, currentStage=None, projectLegacyId=None):
     self.projectId = projectId
     self.projectType = projectType
     self.projectName = projectName
@@ -48,3 +48,5 @@ class Project:
     self.library = library
     self.method = method
     self.status = status
+    self.currentStage = currentStage
+    self.projectLegacyId = projectLegacyId

@@ -205,3 +205,13 @@ def addCompass(id, compass):
     )
     return request.status_code
 
+
+def getCompoundIDfromExternalID(extId):
+    response = requests.get(baseUrl + "compound/by-external-id/"+extId, headers=head)
+    return response.json()["id"]
+
+def editCompoundExternalId(id, dto):
+    request = requests.post(
+        url=baseUrl + "compound/" + id + "/edit-external-id", json=dto, headers=head
+    )
+    return request.status_code

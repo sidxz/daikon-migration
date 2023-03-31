@@ -41,8 +41,10 @@ def validateData(printLogs=True):
             targetName = row[2].replace(" ", "-")
             projectName = row[1]
             smile = row[23]
+            currentStage = row[5]
+            projectLegacyId = row[0]
             primaryOrganization = row[4]
-            externalCompoundIds = "LEGACY-" + row[0]
+            externalCompoundIds = "SPPCID-" + row[0]
             primaryOrganizationAbb = primaryOrganization.upper().replace(" ", "")
             haDate = row[8]
             h2LStart = row[10]
@@ -50,7 +52,6 @@ def validateData(printLogs=True):
             spStart = row[14]
             indStart = row[16]
             clinicalP1Start = row[18]
-            currentStage = row[5]
 
             if printLogs:
                 print(f"# Project Name: {projectName}")
@@ -82,55 +83,64 @@ def validateData(printLogs=True):
                 smileFailCount = smileFailCount + 1
                 # if clinical has a date previous stages must have dates aa well
             if currentStage == "P1":
-                if clinicalP1Start == "":
+                if len(clinicalP1Start) == 0:
                     clinicalP1Start = "1/1/14"
-                if indStart == "":
+                if len(indStart) == 0:
                     indStart = "1/1/14"
-                if spStart == "":
+                if len(spStart) == 0:
                     spStart = "1/1/14"
-                if loStart == "":
+                if len(loStart) == 0:
                     loStart = "1/1/14"
-                if h2LStart == "":
+                if len(h2LStart) == 0:
                     h2LStart = "1/1/14"
+                if len(haDate) == 0:
+                    haDate = "1/1/14"
+
             if currentStage == "IND":
                 clinicalP1Start = ""
-                if indStart == "":
+                if len(indStart) == 0:
                     indStart = "1/1/14"
-                if spStart == "":
+                if len(spStart) == 0:
                     spStart = "1/1/14"
-                if loStart == "":
+                if len(loStart) == 0:
                     loStart = "1/1/14"
-                if h2LStart == "":
+                if len(h2LStart) == 0:
                     h2LStart = "1/1/14"
+                if len(haDate) == 0:
+                    haDate = "1/1/14"
 
             if currentStage == "SP":
                 clinicalP1Start = ""
                 indStart = ""
-                if spStart == "":
+                if len(spStart) == 0:
                     spStart = "1/1/14"
-                if loStart == "":
+                if len(loStart) == 0:
                     loStart = "1/1/14"
-                if h2LStart == "":
+                if len(h2LStart) == 0:
                     h2LStart = "1/1/14"
+                if len(haDate) == 0:
+                    haDate = "1/1/14"
 
             if currentStage == "LO":
                 clinicalP1Start = ""
                 indStart = ""
                 spStart = ""
-                if loStart == "":
+                if len(loStart) == 0:
                     loStart = "1/1/14"
-                if h2LStart == "":
+                if len(h2LStart) == 0:
                     h2LStart = "1/1/14"
+                if len(haDate) == 0:
+                    haDate = "1/1/14"
 
             if currentStage == "H2L":
                 clinicalP1Start = ""
                 indStart = ""
                 spStart = ""
                 loStart = ""
-                if h2LStart == "":
+                if len(h2LStart) == 0:
                     h2LStart = "1/1/14"
-                if h2LStart == "":
-                    h2LStart = "1/1/14"
+                if len(haDate) == 0:
+                    haDate = "1/1/14"
 
             if currentStage == "HA":
                 clinicalP1Start = ""
@@ -138,7 +148,7 @@ def validateData(printLogs=True):
                 spStart = ""
                 loStart = ""
                 h2LStart = ""
-                if haDate == "":
+                if len(haDate) == 0:
                     haDate = "1/1/14"
 
             if currentStage == "Screen":
@@ -159,6 +169,8 @@ def validateData(printLogs=True):
                         projectType="TargetBased",
                         projectName=projectName,
                         targetName=targetName,
+                        currentStage=currentStage,
+                        projectLegacyId=projectLegacyId,
                         targetId=targets.get(targetName)["id"],
                         smile=smile,
                         primaryOrganization=primaryOrganization,
@@ -181,6 +193,8 @@ def validateData(printLogs=True):
                         projectType="Phenotypic",
                         projectName=projectName,
                         targetName=targetName,
+                        currentStage=currentStage,
+                        projectLegacyId=projectLegacyId,
                         smile=smile,
                         primaryOrganization=primaryOrganization,
                         primaryOrgId=appOrgs.get(primaryOrganization.upper()),
@@ -226,4 +240,61 @@ def validateData(printLogs=True):
         print(f"# TARGET FAIL         : {targetFailCount}")
         print(f"# SMILE FAIL          : {smileFailCount}")
         print(f"# HA Date FAIL       : {HAFailCount}")
+
+        with open("int_data/projects_validated.csv", mode="w", newline="") as output_csv:
+            csv_writer = csv.writer(
+                output_csv, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL
+            )
+            # Writing headers
+            csv_writer.writerow(
+                [
+                    "projectType",
+                    "projectLegacyId",
+                    "projectName",
+                    "targetName",
+                    "status",
+                    "currentStage",
+                    "haStart",
+                    "h2LStart",
+                    "loStart",
+                    "spStart",
+                    "indStart",
+                    "clinicalP1Start",
+                    "primaryOrganization",
+                    "primaryOrgId",
+                    "externalCompoundIds",
+                    "library",
+                    "method",
+                    "priority",
+                    "probability",
+                    "smile",
+                ]
+            )
+
+            for validatedProject in validated.values():
+                csv_writer.writerow(
+                    [
+                        validatedProject.projectType,
+                        validatedProject.projectLegacyId,
+                        validatedProject.projectName,
+                        validatedProject.targetName,
+                        validatedProject.status,
+                        validatedProject.currentStage,
+                        validatedProject.haStart,
+                        validatedProject.h2LStart,
+                        validatedProject.loStart,
+                        validatedProject.spStart,
+                        validatedProject.indStart,
+                        validatedProject.clinicalP1Start,
+                        validatedProject.primaryOrganization,
+                        validatedProject.primaryOrgId,
+                        validatedProject.externalCompoundIds,
+                        validatedProject.library,
+                        validatedProject.method,
+                        validatedProject.priority,
+                        validatedProject.probability,
+                        validatedProject.smile,
+                    ]
+                )
+
     return validated

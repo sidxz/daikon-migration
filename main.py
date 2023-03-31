@@ -88,9 +88,9 @@ for projectName in validatedProjects:
         "externalCompoundIds": project.externalCompoundIds,
         "Library": project.library,
         "method": project.method,
-        "mic": 0,
+        "mic": "NA",
         "micCondition": "string",
-        "iC50": 0,
+        "iC50": "NA",
         "smile": project.smile,
         "clusterGroup": "1",
         "molWeight": "0",
@@ -117,6 +117,7 @@ for projectName in validatedProjects:
     print("# Will create new HA")
     newHA = {
         "projectName": project.projectName,
+        "projectLegacyId" : project.projectLegacyId,
         "primaryOrg": {
             "id": project.primaryOrgId
         },
@@ -133,14 +134,14 @@ for projectName in validatedProjects:
                 "id": hitId,
                 "screenId": screenId,
                 "compoundId": compoundId,
-                "mic": 0,
-                "iC50": 0
+                "mic": "NA",
+                "iC50": "NA"
             }
         ],
         "representationStructure": {
             "id": compoundId,
-            "mic": 0,
-            "iC50": 0
+            "mic": "NA",
+            "iC50": "NA"
         }
     }
     print(newHA)
