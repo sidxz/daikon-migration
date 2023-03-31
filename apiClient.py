@@ -215,3 +215,9 @@ def editCompoundExternalId(id, dto):
         url=baseUrl + "compound/" + id + "/edit-external-id", json=dto, headers=head
     )
     return request.status_code
+
+def addCompoundEvolution(projectId, evolution):
+    request = requests.post(
+        url=baseUrl + "project/" + projectId + "/compoundevolution", json=evolution, headers=head
+    )
+    return request.status_code

@@ -212,12 +212,12 @@ for projectName in validatedProjects:
       print(res)
 
     # Active or Terminate
-    if project.status == "Terminated":
-      print("Project should be Terminated")
-      term = {
-          "id": projectId,
-          "projectName": project.projectName
-      }
-      res = terminateProject(projectId, term)
-      print(res)
+    # if project.status == "Terminated":
+    #   print("Project should be Terminated")
+    #   term = {
+    #       "id": projectId,
+    #       "projectName": project.projectName
+    #   }
+    #   res = terminateProject(projectId, term)
+    #   print(res)
     print("# -----------END--------------------")
