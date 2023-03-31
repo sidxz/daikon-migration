@@ -199,6 +199,25 @@ def addVulnerability(id, vulnerability):
     return request.status_code
 
 
+def addProteinProduction(id, proteinProduction):
+    request = requests.post(
+        url=baseUrl + "gene/" + id + "/proteinproduction", json=proteinProduction, headers=head
+    )
+    return request.status_code
+
+def addProteinActivityAssay(id, proteinActivityAssay):
+    request = requests.post(
+        url=baseUrl + "gene/" + id + "/proteinactivityassay", json=proteinActivityAssay, headers=head
+    )
+    return request.status_code
+
+def addUnpublished(id, unpublishedStructures):
+    request = requests.post(
+        url=baseUrl + "gene/" + id + "/unpublishedstructures", json=unpublishedStructures, headers=head
+    )
+    return request.status_code
+
+
 def addCompass(id, compass):
     request = requests.post(
         url=baseUrl + "target/" + id + "/summary", json=compass, headers=head
